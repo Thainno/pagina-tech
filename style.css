@@ -1,0 +1,159 @@
+body, ul, li, p{
+    margin: 0px;
+    padding: 0px;
+    list-style: none; /*tira as bolinhas da lista*/
+    font-size: 1,2rem;
+    font-family: Arial;
+}
+
+body{
+    margin-bottom: 100px;
+}
+
+a{
+    color: white;
+    text-decoration: none; /*tira o sublinhado*/
+}
+
+h1{
+    text-align: center;
+    margin-top: 100px;
+}
+
+img{
+    max-width: 100%; /*as imagens crescem no máximo 100% dá página, não ultrapassa*/
+    display: block;
+}
+
+header{
+    background: #4277B8;
+    display: flex; /*logo do lado da lista*/
+    flex-wrap: wrap; /*quando a tela estiver menor, o menu fica abaixo da logo*/
+    align-items: center; /*deixa a logo e o menu centralizados horizontalmente*/
+    justify-content: space-between; /*da um espaço entre a logo e o menu*/
+    padding: 20px;
+}
+
+.menu{
+    display: flex; /*itens do menu lado a lado*/
+}
+
+.menu li{
+    margin-left: 10px; /*só para separar os itens do menu um pouco*/
+}
+
+.menu li a{
+    display: block;
+    padding: 20px;/*deixa a área de click maior*/
+}
+
+/*CSS FLEXBOX 1*/
+
+.flex{
+    display: flex;
+    flex-wrap: wrap; /*invés de diminuir a imagem, joga ela pra baixo*/
+    max-width: 800px;
+    margin: auto; /*aumenta mas as imagens ficam no meio*/
+}
+
+.flex > div{
+    flex: 1 1 200px; /*1==pode crescer, 1==pode diminuir, 200px==tamanho da imagem*/
+    margin: 10px;
+}
+
+/*CSS GRID 1*/
+
+.grid1 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /*Quantas colunas quer o grid*/
+    max-width: 800px;
+    margin: 0 auto;
+    grid-gap: 20px;
+}
+
+.grid1 > div:nth-child(10){ /*escolhe qual ele mento irá editar, elemento no entre()*/
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);/*esse elemento terá 2 colunas*/
+    align-items: center; /*alinha os itens, nesse caso, a imagem com o paragrafo*/
+}
+
+.anuncio{
+    grid-column: 1;/*coloca os itens sempre na coluna informada*/
+    grid-row: 2 / 5; /*determina as linhas que o elemento ocupa, nesse daso, da 2 até a 5*/
+    display: block;
+}
+
+@media (max-width:600px) { /*tudo que for menor que 600px aplique esses estilos*/
+    .grid1{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .grid1 > div:nth-child(10){
+        display:block;
+    }
+}
+
+/*CSS GRID 2*/
+
+.grid2{
+    display: grid; /*modo de exibição*/
+    grid-template-columns: 1fr 200px;
+    grid-gap: 20px; /*espaçamento da imagem grande das menores*/
+    max-width: 800px; /*tamanho máximo que ocupará na página*/
+    padding: 10px;
+    margin: 0 auto; /*deixa o conteúdo no centro*/
+}
+
+.sidebar > div {
+    margin-bottom: 10px; /*espaço entre as imagens pequenas (segunda coluna)*/
+}
+
+@media(max-width: 600px){ /*tudo que for menor que 600px aplique esses estilos*/
+    .grid2{
+        grid-template-columns: 1fr; /*fica apenas com um a coluna*/
+    }
+    .sidebar{
+        display: flex; /*alinha na mesma linha*/
+        overflow: scroll;/*cria uma barra de rolagem pro item*/
+    }
+    .sidebar > div{
+        flex: 1 0 200px;/*1==pode crescer, 1==pode diminuir, 200px==tamanho da imagem*/
+        margin: 0 10px;
+    }
+}
+
+/*SECTION GRID 3*/
+
+.grid3{
+    display: grid;/*modo de exibição*/
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 10px;
+}
+
+.grid3-item:nth-child(1){/*seleciona o primeiro item da classe .grid3-item*/
+    grid-row: 1/3; /*o item selecionado ocupará da linha 1 até a 3*/
+}
+
+.grid3-item{
+    display: grid;
+}
+
+.grid3-item img{
+    grid-column: 1;
+    grid-row: 1/3;
+    align-self: end;
+}
+
+.grid3-item p {
+    background: rgba(0, 0, 0, 0.356);/*cor do fundo dos parágrafos*/
+    padding: 10px;
+    color: white;
+    grid-column: 1;
+    grid-row: 2;
+    align-self: end;
+}
+
+
+
