@@ -1,2 +1,2 @@
-# pagina-tech
- Praticando
+# Pagina-tech
+
